@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+OMM Assignment 5 
+Dennis Hanrieder s2210238022
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Chatgbt Prombt: what is a radio group?
+Chargbt Answer: 
 
-Currently, two official plugins are available:
+A radio group is a set of options where only one can be selected at a time. It's commonly used when the user needs to pick one choice from a list.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔘 Real-World Example:
+Think about when you're filling out a form and see something like this:
 
-## Expanding the ESLint configuration
+Choose a filter:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+( ) None
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+(•) Grayscale
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+( ) Sepia
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+( ) Blur
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+This is a radio group—each option is a radio button, and selecting one automatically deselects the others.
+
+🧠 Why Use It?
+Radio groups are perfect when:
+
+You want to limit the user to one option.
+
+The options are mutually exclusive (can't be combined).
+
+You want a clear UI to show the current selection.
+
+🧱 HTML Example:
+html
+Kopieren
+Bearbeiten
+<form>
+  <label><input type="radio" name="filter" value="none"> None</label>
+  <label><input type="radio" name="filter" value="grayscale"> Grayscale</label>
+  <label><input type="radio" name="filter" value="sepia"> Sepia</label>
+</form>
+Notice how all radio buttons share the same name="filter"? That’s what groups them—so only one can be selected at a time.
+
+🧩 In React
+In React, you’d manage the selected option with state, like:
+
+tsx
+Kopieren
+Bearbeiten
+const [filter, setFilter] = useState("none")
+
+<input type="radio" value="grayscale" checked={filter === "grayscale"} onChange={() => setFilter("grayscale")} />
+Would you like to add a radio group for filter selection in your app too?
