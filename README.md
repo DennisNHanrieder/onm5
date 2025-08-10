@@ -1,53 +1,81 @@
-OMM Assignment 5 
-Dennis Hanrieder s2210238022
+# React Webcam Filter Studio
 
-Chatgbt Prombt: what is a radio group?
-Chargbt Answer: 
+## Overview
+**React Webcam Filter Studio** is a **React + TypeScript + Vite** application that demonstrates real-time webcam video capture, processing, and filter effects using the **WebRTC `getUserMedia` API** and HTML5 `<canvas>`. It falls back to a local sample video if no webcam is available.
 
-A radio group is a set of options where only one can be selected at a time. It's commonly used when the user needs to pick one choice from a list.
+## Why this project exists
+The purpose of this project is to:
+- Demonstrate **React + TypeScript** skills applied to real-time multimedia scenarios.
+- Show proficiency with **WebRTC APIs** and HTML5 video/canvas manipulation.
+- Illustrate clean state management for UI-driven filters and effects.
+- Provide a visually engaging portfolio example.
 
-🔘 Real-World Example:
-Think about when you're filling out a form and see something like this:
+## Features
+- **Live Webcam Capture** — Streams directly from the user’s camera.
+- **Fallback Mode** — Plays a bundled sample video if webcam access is denied or unavailable.
+- **Real-time Filters** — Adjust parameters on the fly:
+  - Grayscale intensity
+  - Sepia tone
+  - Blur amount
+- **Canvas Rendering** — Processes and displays video frames with active effects.
+- **Responsive UI** — Works across desktop and laptop browsers.
 
-Choose a filter:
+> Key modules:
+> - `src/App.tsx` — Main app logic for media capture, state management, and filter application.
+> - `public/fallback1.mp4` — Fallback video used when webcam is unavailable.
 
-( ) None
+## Quick start (clone & run)
+```bash
+# 1) Clone the repository
+git clone <https://github.com/DennisNHanrieder/onm5.git>
+cd onm5-main/onm5-main
 
-(•) Grayscale
+# 2) Install dependencies
+npm install
 
-( ) Sepia
+# 3) Start the development server
+npm run dev
+```
 
-( ) Blur
+## Dependencies & setup
+- **Core tech stack:** Node.js (v18+), React, TypeScript, Vite.
+- **Package manager:** npm (pnpm/yarn also supported).
+- **Recommended:** Use `nvm` or `asdf` to ensure Node version compatibility.
 
-This is a radio group—each option is a radio button, and selecting one automatically deselects the others.
+### Direct dependencies
+- `react` — Component-based UI library.
+- `react-dom` — DOM rendering for React components.
 
-🧠 Why Use It?
-Radio groups are perfect when:
+### Dev dependencies
+- `typescript` — Static typing.
+- `@vitejs/plugin-react` — Vite plugin for React.
+- `eslint` + React plugins — Code style enforcement.
+- `vite` — Development server and build tool.
 
-You want to limit the user to one option.
+## Common scripts
+- **Install:** `npm install`
+- **Development (HMR):** `npm run dev`
+- **Build (production):** `npm run build`
+- **Preview build:** `npm run preview`
+- **Lint code:** `npm run lint`
 
-The options are mutually exclusive (can't be combined).
+## How to run tests
+No tests are configured. Suggested setup:
+```bash
+npm install -D vitest @testing-library/react @testing-library/jest-dom jsdom
+# Add to package.json:
+# "test": "vitest"
+npm test
+```
 
-You want a clear UI to show the current selection.
+## How to contribute
+1. Fork the repository and create a feature branch.
+2. Ensure new code follows the existing style and patterns.
+3. Document any new functionality and UI changes.
+4. Submit a pull request with a clear description.
 
-🧱 HTML Example:
-html
-Kopieren
-Bearbeiten
-<form>
-  <label><input type="radio" name="filter" value="none"> None</label>
-  <label><input type="radio" name="filter" value="grayscale"> Grayscale</label>
-  <label><input type="radio" name="filter" value="sepia"> Sepia</label>
-</form>
-Notice how all radio buttons share the same name="filter"? That’s what groups them—so only one can be selected at a time.
-
-🧩 In React
-In React, you’d manage the selected option with state, like:
-
-tsx
-Kopieren
-Bearbeiten
-const [filter, setFilter] = useState("none")
-
-<input type="radio" value="grayscale" checked={filter === "grayscale"} onChange={() => setFilter("grayscale")} />
-Would you like to add a radio group for filter selection in your app too?
+## What powers the core functionality?
+- **WebRTC `getUserMedia` API** — For webcam access and media streaming.
+- **React + TypeScript** — Type-safe, component-based structure.
+- **HTML5 `<canvas>`** — For real-time video frame manipulation.
+- **Vite** — Fast, modern development tooling.
